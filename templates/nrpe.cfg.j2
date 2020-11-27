@@ -258,6 +258,13 @@ command[check_linux_file_content]=python {{common_nagios_plugins_dir}}/check_lin
 command[check_burp_update]=/usr/bin/sudo python /usr/lib/nagios/plugins/check_burp_update.py
 command[check_disk]=/usr/bin/sudo {{common_nagios_plugins_dir}}/check_disk -w 8% -c 5% --exclude-type=fuse.gvfsd-fuse --exclude-type=tracefs --exclude-type=debugfs
 
+# StoreOnce plugins
+command[check_storeonce_hardwareStatus]=python {{common_nagios_plugins_dir}}/hardwareCompStatus.py $ARG1$ $ARG2$ $ARG3$
+command[check_storeonce_systemHealth]=python {{common_nagios_plugins_dir}}/systemHealthCapacity.py $ARG1$ $ARG2$ $ARG3$
+command[check_storeonce_servicesHealt]=python {{common_nagios_plugins_dir}}/serviceSetHealth.py $ARG1$ $ARG2$ $ARG3$
+command[check_storeonce_libStorage]=python {{common_nagios_plugins_dir}}/vtlStorageReport.py $ARG1$ $ARG2$ $ARG3$
+command[check_storeonce_libThroughput]=python {{common_nagios_plugins_dir}}/vtlThroughputReport.py $ARG1$ $ARG2$ $ARG3$
+
 # jonschipp plugins
 command[check_service]={{common_nagios_plugins_dir}}/jonschipp/check_service.sh -s $ARG1$
 command[check_jonsschip]={{common_nagios_plugins_dir}}/jonschipp/$ARG1$ $ARG2$
